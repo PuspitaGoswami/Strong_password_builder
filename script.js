@@ -88,8 +88,11 @@ var upperCasedCharacters = [
   'Z'
 ];
 
+var new_array = [];
+var pass_array = [];
+
 // Function to prompt user for password options
-function getPasswordOptions() {
+function generatePassword() {
   var pass = prompt('What is the length?');
   console.log(pass)
   if(pass < 10){
@@ -101,11 +104,39 @@ function getPasswordOptions() {
     return
   }
   else{
-    prompt('Do you need special character?')
+    var ans = confirm('Do you need special character?')
+    if(ans === true ){
+      new_array = new_array.concat(specialCharacters) ;
+
+    }
+
+    var reply = confirm('Do you need capital character?')
+    if(reply === true){
+      new_array = new_array.concat(upperCasedCharacters);
+    }
+    var reply2 = confirm('Do you need lower case character?')
+    if(reply2 === true){
+      new_array = new_array.concat(lowerCasedCharacters);
+    }
+    var reply3 = confirm('Do you need numbers?')
+    if(reply3 === true){
+      new_array = new_array.concat(numericCharacters);
+    }
+    if(new_array.length === 0){
+      alert('You need to choose at least one character!');
+      return
+    }
   }
 
+  for(var i=0;i<pass;i++){
+    pass_array.push(getRandom(new_array));
+  }
+
+  // console.log(pass_array.join(''));
+  return pass_array.join('');
+
 }
-getPasswordOptions()
+
 
 // Function for getting a random element from an array
 function getRandom(arr) {
@@ -120,11 +151,9 @@ function getRandom(arr) {
 
 }
 
-console.log(getRandom())
-// Function to generate password with user input
-function generatePassword() {
 
-}
+// Function to generate password with user input
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
