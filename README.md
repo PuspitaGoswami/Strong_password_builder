@@ -9,7 +9,7 @@ This project is a password generator that creates secure, random passwords with 
 - Option to include upper and lowercase letters 
 
 ### Deployed link
-
+https://puspitagoswami.github.io/Strong_password_builder/
 
 ## Installation
 
